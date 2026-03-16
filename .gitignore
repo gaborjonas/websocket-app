@@ -1,0 +1,4 @@
+.idea
+back/vendor
+back/temp
+front/node_modules

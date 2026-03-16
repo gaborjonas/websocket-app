@@ -1,0 +1,57 @@
+{
+    "name": "gabor/websocket-app",
+    "type": "project",
+    "require": {
+        "php": "~8.5.0",
+        "ext-mbstring": "*",
+        "ext-sockets": "*",
+        "cboden/ratchet": "^0.4.4"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.50",
+        "friendsofphp/php-cs-fixer": "^3.94",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^13.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Gabor\\WebsocketApp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "@lint",
+            "@stan",
+            "@test",
+            "@mutation"
+        ],
+        "lint": "php-cs-fixer fix --diff",
+        "lint:check": "php-cs-fixer check --diff",
+        "stan": "phpstan analyze",
+        "test": "phpunit --cache-directory ./temp/phpunit/cache",
+        "run:server": "php bin/server.php",
+        "run:task1": "php bin/task1.php"
+    },
+    "scripts-descriptions": {
+        "check": "Run all quality assurance checks (lint, stan, test, mutation)",
+        "lint": "Fix code style issues automatically",
+        "lint:check": "Check code style without fixing issues",
+        "stan": "Run static analysis with PHPStan",
+        "test": "Run unit tests with PHPUnit",
+        "run:server": "Run the websocket server",
+        "run:task1": "Run task 1"
+    }
+}
