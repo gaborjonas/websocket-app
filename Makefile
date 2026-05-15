@@ -1,7 +1,7 @@
 .PHONY: setup-web start-server setup-web setup-server setup
 
 start:
-	start-web & start-server
+	$(MAKE) start-web & $(MAKE) start-server
 
 start-server:
 	composer -d server run:server
