@@ -5,7 +5,7 @@ on:
 
 jobs:
   web:
-    name: Front-end checks
+    name: Front-end
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +34,7 @@ jobs:
         run: npm run build-only --prefix web
 
   server:
-    name: Back-end checks
+    name: Back-end
     runs-on: ubuntu-latest
 
     steps:
