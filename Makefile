@@ -1,18 +1,18 @@
-.PHONY: setup-front-end setup-back-end setup
+.PHONY: setup-web start-server setup-web setup-server setup
 
 start:
-	start-front-end & start-back-end
+	$(MAKE) start-web & $(MAKE) start-server
 
-start-back-end:
-	composer -d back run-server
+start-server:
+	composer -d server run:server
 
-start-front-end:
-	npm --prefix front run dev
+start-web:
+	npm --prefix web run dev
 
-setup-front-end:
-	npm --prefix front install
+setup-web:
+	npm --prefix web install
 
-setup-back-end:
-	composer -d back install
+setup-server:
+	composer -d server install
 
-setup: setup-front-end setup-back-end
+setup: setup-web setup-server

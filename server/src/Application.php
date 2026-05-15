@@ -23,9 +23,6 @@ final class Application implements MessageComponentInterface
     {
         foreach ($machines as $machine) {
             $this->machines[] = $machine;
-        }
-
-        foreach ($this->machines as $machine) {
             $machine->attach($this->dashboard);
         }
     }
@@ -68,13 +65,13 @@ final class Application implements MessageComponentInterface
     {
         $this->dashboard->removeClient($connection);
         /** @phpstan-ignore-next-line */
-        echo printf('Client #%s disconnected', $connection->resourceId) . PHP_EOL;
+        echo sprintf('Client #%s disconnected', $connection->resourceId) . PHP_EOL;
     }
 
     public function onError(ConnectionInterface $connection, Exception $e): void
     {
         /** @phpstan-ignore-next-line */
-        echo printf('An error has occurred on client #%s', $connection->resourceId) . PHP_EOL;
+        echo sprintf('An error has occurred on client #%s', $connection->resourceId) . PHP_EOL;
         $connection->close();
     }
 

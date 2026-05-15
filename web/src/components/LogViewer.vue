@@ -17,12 +17,7 @@
 
 <script setup lang="ts">
 import { ref, watch, nextTick } from 'vue'
-
-interface Log {
-  timestamp: string
-  machine: string
-  state: string
-}
+import type {Log} from "@/composables/useWebSocket.ts";
 
 const props = defineProps<{
   logs: Log[]

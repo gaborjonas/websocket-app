@@ -1,3 +1,7 @@
+# Websocket App
+
+[Instructions](./instructions.md)
+
 # Running locally
 ## Requirements
 - PHP 8.5
@@ -9,29 +13,29 @@
 ### Setup
 Websocket server
 ```sh
-composer -d back install
+composer -d server install
 ```
 
 Dashboard
 ```sh
-npm --prefix front install
+npm --prefix web install
 ```
 
 ### Running the application
 
 Task 1
 ```sh
-composer -d back run:task1
+composer -d server run:task1
 ```
 
 Websocket server
 ```sh
-composer -d back run:server
+composer -d server run:server
 ```
 
 Dashboard
 ```sh
-npm --prefix front run dev
+npm --prefix web run dev
 ```
 
 Visit

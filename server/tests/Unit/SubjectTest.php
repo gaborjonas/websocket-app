@@ -96,7 +96,7 @@ final class SubjectTest extends TestCase
         $this->subject->detach($observer2);
 
         $this->assertCount(2, $this->subject->getObservers());
-        $this->assertEquals([0 => $observer1, 2 => $observer3], $this->subject->getObservers());
+        $this->assertEquals([$observer1, $observer3], $this->subject->getObservers());
     }
 
     #[Test]

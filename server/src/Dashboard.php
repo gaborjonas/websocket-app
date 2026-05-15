@@ -27,10 +27,10 @@ class Dashboard extends Observer
 
     public function removeClient(ConnectionInterface $client): void
     {
-        $this->clients = array_filter(
+        $this->clients = array_values(array_filter(
             $this->clients,
             fn(ConnectionInterface $c) => $c !== $client
-        );
+        ));
     }
 
     /**
