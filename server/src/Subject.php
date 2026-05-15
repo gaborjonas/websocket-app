@@ -32,10 +32,10 @@ abstract class Subject
 
     public function detach(Observer $observer): void
     {
-        $this->observers = array_filter(
+        $this->observers = array_values(array_filter(
             $this->observers,
             fn(Observer $o) => $o !== $observer
-        );
+        ));
     }
 
     /**
@@ -46,7 +46,7 @@ abstract class Subject
         return $this->observers;
     }
 
-    public function notifyAllObservers(): void
+    private function notifyAllObservers(): void
     {
         foreach ($this->observers as $observer) {
             $observer->update($this->state, $this->getName());

@@ -95,7 +95,7 @@ final class DashboardTest extends TestCase
         $this->dashboard->removeClient($client2);
 
         $this->assertCount(2, $this->dashboard->getClients());
-        $this->assertSame([0 => $client1, 2 => $client3], $this->dashboard->getClients());
+        $this->assertSame([$client1, $client3], $this->dashboard->getClients());
 
     }
 

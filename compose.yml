@@ -1,22 +1,22 @@
 services:
-  frontend:
-    container_name: frontend
+  web:
+    container_name: web
     build:
-      context: ./front
+      context: ./web
       dockerfile: ./Dockerfile
     ports:
       - "5173:5173"
     environment:
       - NODE_ENV=development
     depends_on:
-      - backend
+      - server
     networks:
       - app-network
 
-  backend:
-    container_name: backend
+  server:
+    container_name: server
     build:
-      context: ./back
+      context: ./server
       dockerfile: ./Dockerfile
     ports:
       - "8080:8080"

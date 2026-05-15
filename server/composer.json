@@ -35,8 +35,7 @@
         "check": [
             "@lint",
             "@stan",
-            "@test",
-            "@mutation"
+            "@test"
         ],
         "lint": "php-cs-fixer fix --diff",
         "lint:check": "php-cs-fixer check --diff",

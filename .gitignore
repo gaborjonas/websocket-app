@@ -1,5 +1,5 @@
 .idea
-back/vendor
-back/temp
-front/node_modules
-front/.eslintcache
+server/vendor
+server/temp
+web/node_modules
+web/.eslintcache

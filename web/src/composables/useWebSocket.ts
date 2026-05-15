@@ -31,6 +31,7 @@ export function useWebSocket() {
   }
 
   const connect = () => {
+    reconnecting = false
     try {
       ws = new WebSocket(WS_URL)
 

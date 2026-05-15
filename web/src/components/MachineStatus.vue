@@ -22,10 +22,9 @@
             <span
               :class="['state-badge', machine.state]"
               :id="'badge-' + name.replace(/\s+/g, '-')"
+              :style="{ backgroundColor: getStateColor(machine.state) }"
             >
-              <span class="badge-text" :style="{ backgroundColor: getStateColor(machine.state) }">
-                {{ machine.state }}
-              </span>
+              {{ machine.state }}
             </span>
           </td>
         </tr>
@@ -35,10 +34,7 @@
 </template>
 
 <script setup lang="ts">
-interface Machine {
-  name: string
-  state: string
-}
+import type { Machine } from '@/composables/useWebSocket.ts'
 
 defineProps<{
   machines: Map<string, Machine>
@@ -95,12 +91,6 @@ th {
   border-radius: 16px;
   font-size: 0.875rem;
   font-weight: 500;
-}
-
-.badge-text {
   color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
-  display: inline-block;
 }
 </style>

@@ -65,7 +65,7 @@ final class MachineTest extends TestCase
     }
 
     #[Test]
-    #[TestDox('Machine can change state back to Idle')]
+    #[TestDox('Machine can change state server to Idle')]
     public function itCanChangeStateBackToIdle(): void
     {
         $machine = new Machine('Test Machine');
