@@ -1,10 +1,39 @@
-name: CI Server
+name: CI Checks
 
 on:
   push:
 
 jobs:
-  ci:
+  web:
+    name: Front-end checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --prefix web
+
+      - name: Lint
+        run: npm run lint --prefix web
+
+      - name: Type Check
+        run: npm run type-check --prefix web
+
+      - name: Unit Tests
+        run: npm run test:run --prefix web
+
+      - name: Build
+        run: npm run build-only --prefix web
+
+  server:
     name: Back-end checks
     runs-on: ubuntu-latest
 
